@@ -31,7 +31,7 @@ public class ConfiguracionActivity extends AppCompatActivity {
         seekBarVelocidad = findViewById(R.id.seekBarVelocidad);
         // Cargar velocidad guardada
         SharedPreferences prefs = getSharedPreferences("bingo_config", MODE_PRIVATE);
-        int velocidadGuardada = prefs.getInt("velocidad", 2);
+        int velocidadGuardada = prefs.getInt("velocidad", 1);
         seekBarVelocidad.setProgress(velocidadGuardada);
         seekBarVelocidad.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override

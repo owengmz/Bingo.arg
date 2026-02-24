@@ -22,6 +22,10 @@
         </activity>
         <activity android:name=".ConfiguracionActivity" />
         <activity android:name=".JuegoActivity" />
+        <activity
+            android:name=".ConfirmarStopActivity"
+            android:theme="@style/Theme.Transparent"/>
+
     </application>
 
 </manifest>

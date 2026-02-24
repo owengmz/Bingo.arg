@@ -174,8 +174,8 @@
                     android:id="@+id/seekBarVelocidad"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:max="4"
-                    android:progress="2"
+                    android:max="2"
+                    android:progress="1"
                     android:progressTint="#a436f2"
                     android:thumbTint="#a436f2"/>
 

@@ -7,8 +7,6 @@ import android.os.Handler;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -81,17 +79,10 @@ public class JuegoActivity extends AppCompatActivity {
 
         // Botón Stop con confirmación
         btnStop.setOnClickListener(v -> {
-            new AlertDialog.Builder(this)
-                    .setTitle("Finalizar partida")
-                    .setMessage("¿Estás seguro que querés finalizar la partida?")
-                    .setPositiveButton("Finalizar", (dialog, which) -> {
-                        jugando = false;
-                        pausado = false;
-                        handler.removeCallbacks(runnable);
-                        finDelJuego();
-                    })
-                    .setNegativeButton("Cancelar", null)
-                    .show();
+            jugando = false;
+            handler.removeCallbacks(runnable);
+            Intent intent = new Intent(JuegoActivity.this, ConfirmarStopActivity.class);
+            startActivity(intent);
         });
         recyclerViewSalidos = findViewById(R.id.recyclerViewSalidos);
         salidosAdapter = new SalidosAdapter(this);
@@ -103,20 +94,17 @@ public class JuegoActivity extends AppCompatActivity {
 // Metodo para obtener la velocidad desde SharedPreferences
     private int obtenerVelocidad() {
         SharedPreferences prefs = getSharedPreferences("bingo_config", MODE_PRIVATE);
-        int progreso = prefs.getInt("velocidad", 2);
+        int progreso = prefs.getInt("velocidad", 1);
         switch (progreso) {
             case 0:
-                return 4000; // Muy lento
+                return 5000; // lento
             case 1:
-                return 3000; // Lento
+                return 4000; // normal
             case 2:
-                return 2000; // Normal
-            case 3:
-                return 1000; // Rápido
-            case 4:
-                return 500;  // Muy rápido
+                return 3000; // Rapido
+
             default:
-                return 2000;
+                return 4000;
         }
     }
 
