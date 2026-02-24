@@ -1,0 +1,30 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+# Archivos de firma (MUY importante, nunca subir)
+*.jks
+*.keystore
+
+# Archivos de API keys o secretos
+google-services.json
+
+# Carpeta de idea completa
+.idea/
+
+# Archivos de usuario de gradle
+gradle-wrapper.jar
+.gradle/
+
+# Carpeta generada
+app/release/
