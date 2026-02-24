@@ -33,7 +33,9 @@ public class MainActivity extends AppCompatActivity {
         TextView tvReglas = findViewById(R.id.tvReglas);
 
         btnEmpezar.setOnClickListener(v -> {
-            // Aquí navegaremos a la pantalla de juego
+            Intent intent1 = new Intent(MainActivity.this, JuegoActivity.class);
+            startActivity(intent1);
+            // Aquí navegaremos a la pantalla de juego , NOTA ANTES DE INICIALIZARLA FIJARSE SI ESTA CREADA EN ANDORID MANIFEST
         });
 
         btnConfiguracion.setOnClickListener(v -> {

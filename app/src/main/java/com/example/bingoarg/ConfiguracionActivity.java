@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.Switch;
-
+import android.content.SharedPreferences;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ConfiguracionActivity extends AppCompatActivity {
@@ -29,11 +29,21 @@ public class ConfiguracionActivity extends AppCompatActivity {
 
         // SeekBar de velocidad
         seekBarVelocidad = findViewById(R.id.seekBarVelocidad);
+        // Cargar velocidad guardada
+        SharedPreferences prefs = getSharedPreferences("bingo_config", MODE_PRIVATE);
+        int velocidadGuardada = prefs.getInt("velocidad", 2);
+        seekBarVelocidad.setProgress(velocidadGuardada);
         seekBarVelocidad.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                // 0=muy lento, 1=lento, 2=normal, 3=rápido, 4=muy rápido
+                // Guardamos la velocidad elegida en SharedPreferences
+                SharedPreferences prefs = getSharedPreferences("bingo_config", MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("velocidad", progress);
+                editor.apply();
             }
+
+
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {

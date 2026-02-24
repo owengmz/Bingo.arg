@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:letterSpacing="-0.05"
-        android:text="bingo.arg"
+        android:text="Bingo.arg"
         android:textColor="#FFFFFF"
         android:textSize="56sp"
         android:textStyle="bold|italic"

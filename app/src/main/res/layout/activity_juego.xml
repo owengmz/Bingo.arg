@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1b1022">
+
+    <!-- Header -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:background="#1b1022"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <View
+            android:layout_width="40dp"
+            android:layout_height="40dp"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Bingo.arg"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#a436f2"
+            android:gravity="center"/>
+
+        <ImageButton
+            android:id="@+id/btnConfiguracion"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@android:drawable/ic_menu_preferences"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:tint="#a436f2"/>
+
+    </LinearLayout>
+
+    <!-- Número grande -->
+    <LinearLayout
+        android:id="@+id/seccionNumero"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingVertical="24dp"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Último número"
+            android:textSize="12sp"
+            android:textColor="#a436f2"
+            android:letterSpacing="0.2"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Círculo con número -->
+        <FrameLayout
+            android:layout_width="140dp"
+            android:layout_height="140dp">
+
+            <View
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:background="@drawable/circulo_numero"/>
+
+            <TextView
+                android:id="@+id/tvUltimoNumero"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="--"
+                android:textSize="64sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:gravity="center"/>
+
+        </FrameLayout>
+
+        <!-- Contador -->
+        <TextView
+            android:id="@+id/tvContador"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sorteados: 0/90"
+            android:textSize="12sp"
+            android:textColor="#a436f2"
+            android:layout_marginTop="12dp"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="6dp"
+            android:background="@drawable/bg_chip"/>
+
+    </LinearLayout>
+
+    <!-- RecyclerView grilla -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewNumeros"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="8dp"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toBottomOf="@id/recyclerViewSalidos"
+        app:layout_constraintBottom_toTopOf="@id/layoutBotones"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <!-- Lista horizontal de números salidos -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewSalidos"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:paddingHorizontal="8dp"
+        app:layout_constraintTop_toBottomOf="@id/seccionNumero"
+        app:layout_constraintBottom_toTopOf="@id/recyclerViewNumeros"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Botones Play y Stop -->
+    <LinearLayout
+        android:id="@+id/layoutBotones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/btnPlay"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:text="▶ Play"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#a436f2"
+            android:layout_marginEnd="8dp"
+            app:cornerRadius="12dp"/>
+
+        <Button
+            android:id="@+id/btnStop"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:text="■ Stop"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#2d2435"
+            android:layout_marginStart="8dp"
+            app:cornerRadius="12dp"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
